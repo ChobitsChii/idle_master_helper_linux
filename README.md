@@ -1,0 +1,1 @@
+The Original Version can found by [jshackles](https://github.com/jshackles/idle_master_py/blob/master/Source/Idle%20Master%20Helper/idle-to-ready.py).
