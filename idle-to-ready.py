@@ -237,8 +237,7 @@ i = 1
 for apps in chunks(badgesLeft, 25):
 	logging.warning("Starting batch #" + str(i))
 	IdleBatch(apps)
-#	time.sleep(7200)
-	time.sleep(60)
+	time.sleep(7200)
 	
 	try:
 		process_idle1.terminate()
