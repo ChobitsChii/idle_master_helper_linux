@@ -39,6 +39,10 @@ if choice not in valid:
 	logging.warning("Goodbye!")
 	sys.exit()
 	
+logging.warning("I can start the normal Idle Master for you when I'm done.")
+logging.warning("Should I do this for you?  [y/n]")
+choice2 = raw_input("").lower()
+
 try:
 	authData={}
 	authData["sort"]=""
@@ -192,37 +196,39 @@ def IdleBatch(appids):
 		idle_time = time.time()
 
 		if sys.platform.startswith('win32'):
-			start_text = "steam-idle.exe "
+			logging.warning("only Linux supported at this version, bye for now")
+			sys.exit()
 		elif sys.platform.startswith('darwin'):
-			start_text = "./steam-idle "
+			logging.warning("only Linux supported at this version, bye for now")
+			sys.exit()
 		elif sys.platform.startswith('linux'):
-			start_text = "steam-idle.py "
+			start_text = "python2 steam-idle.py "
 					
-		process_idle1 = subprocess.Popen(start_text + str(appids[0][0]))
-		process_idle2 = subprocess.Popen(start_text + str(appids[1][0]))
-		process_idle3 = subprocess.Popen(start_text + str(appids[2][0]))
-		process_idle4 = subprocess.Popen(start_text + str(appids[3][0]))
-		process_idle5 = subprocess.Popen(start_text + str(appids[4][0]))
-		process_idle6 = subprocess.Popen(start_text + str(appids[5][0]))
-		process_idle7 = subprocess.Popen(start_text + str(appids[6][0]))
-		process_idle8 = subprocess.Popen(start_text + str(appids[7][0]))
-		process_idle9 = subprocess.Popen(start_text + str(appids[8][0]))
-		process_idle10 = subprocess.Popen(start_text + str(appids[9][0]))
-		process_idle11 = subprocess.Popen(start_text + str(appids[10][0]))
-		process_idle12 = subprocess.Popen(start_text + str(appids[11][0]))
-		process_idle13 = subprocess.Popen(start_text + str(appids[12][0]))
-		process_idle14 = subprocess.Popen(start_text + str(appids[13][0]))
-		process_idle15 = subprocess.Popen(start_text + str(appids[14][0]))
-		process_idle16 = subprocess.Popen(start_text + str(appids[15][0]))
-		process_idle17 = subprocess.Popen(start_text + str(appids[16][0]))
-		process_idle18 = subprocess.Popen(start_text + str(appids[17][0]))
-		process_idle19 = subprocess.Popen(start_text + str(appids[18][0]))
-		process_idle20 = subprocess.Popen(start_text + str(appids[19][0]))
-		process_idle21 = subprocess.Popen(start_text + str(appids[20][0]))
-		process_idle22 = subprocess.Popen(start_text + str(appids[21][0]))
-		process_idle23 = subprocess.Popen(start_text + str(appids[22][0]))
-		process_idle24 = subprocess.Popen(start_text + str(appids[23][0]))
-		process_idle25 = subprocess.Popen(start_text + str(appids[24][0]))
+		process_idle1 = subprocess.Popen(["python2", "steam-idle.py", str(appids[0][0])])
+		process_idle2 = subprocess.Popen(["python2", "steam-idle.py", str(appids[1][0])])
+		process_idle3 = subprocess.Popen(["python2", "steam-idle.py", str(appids[2][0])])
+		process_idle4 = subprocess.Popen(["python2", "steam-idle.py", str(appids[3][0])])
+		process_idle5 = subprocess.Popen(["python2", "steam-idle.py", str(appids[4][0])])
+		process_idle6 = subprocess.Popen(["python2", "steam-idle.py", str(appids[5][0])])
+		process_idle7 = subprocess.Popen(["python2", "steam-idle.py", str(appids[6][0])])
+		process_idle8 = subprocess.Popen(["python2", "steam-idle.py", str(appids[7][0])])
+		process_idle9 = subprocess.Popen(["python2", "steam-idle.py", str(appids[8][0])])
+		process_idle10 = subprocess.Popen(["python2", "steam-idle.py", str(appids[9][0])])
+		process_idle11 = subprocess.Popen(["python2", "steam-idle.py", str(appids[10][0])])
+		process_idle12 = subprocess.Popen(["python2", "steam-idle.py", str(appids[11][0])])
+		process_idle13 = subprocess.Popen(["python2", "steam-idle.py", str(appids[12][0])])
+		process_idle14 = subprocess.Popen(["python2", "steam-idle.py", str(appids[13][0])])
+		process_idle15 = subprocess.Popen(["python2", "steam-idle.py", str(appids[14][0])])
+		process_idle16 = subprocess.Popen(["python2", "steam-idle.py", str(appids[15][0])])
+		process_idle17 = subprocess.Popen(["python2", "steam-idle.py", str(appids[16][0])])
+		process_idle18 = subprocess.Popen(["python2", "steam-idle.py", str(appids[17][0])])
+		process_idle19 = subprocess.Popen(["python2", "steam-idle.py", str(appids[18][0])])
+		process_idle20 = subprocess.Popen(["python2", "steam-idle.py", str(appids[19][0])])
+		process_idle21 = subprocess.Popen(["python2", "steam-idle.py", str(appids[20][0])])
+		process_idle22 = subprocess.Popen(["python2", "steam-idle.py", str(appids[21][0])])
+		process_idle23 = subprocess.Popen(["python2", "steam-idle.py", str(appids[22][0])])
+		process_idle24 = subprocess.Popen(["python2", "steam-idle.py", str(appids[23][0])])
+		process_idle25 = subprocess.Popen(["python2", "steam-idle.py", str(appids[24][0])])
 	except:
 		logging.warning("All games started")
 		
@@ -231,7 +237,8 @@ i = 1
 for apps in chunks(badgesLeft, 25):
 	logging.warning("Starting batch #" + str(i))
 	IdleBatch(apps)
-	time.sleep(7200)
+#	time.sleep(7200)
+	time.sleep(60)
 	
 	try:
 		process_idle1.terminate()
@@ -266,5 +273,12 @@ for apps in chunks(badgesLeft, 25):
 	i = i + 1
 	
 logging.warning(Fore.GREEN + "Successfully completed idling process" + Fore.RESET)
-logging.warning("You're now ready to run Idle Master!")
-raw_input("Press Enter to continue...")
+
+if choice2 not in valid:
+	logging.warning("You're now ready to run Idle Master!")
+	raw_input("Press Enter to continue...")
+else:
+	subprocess.Popen(["python2", "start.py"])
+	
+
+
